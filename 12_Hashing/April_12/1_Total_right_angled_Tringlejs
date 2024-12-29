@@ -1,0 +1,17 @@
+function NumOfTringle(arr) {
+  let freq_x = {};
+  let freq_y = {};
+  let ans = 0;
+  for (let i = 0; i < arr.length; i++) {
+    freq_x[arr[i][0]]++;
+    freq_y[arr[i][1]]++;
+    for (let j = 0; j < arr.length; j++) {
+      ans += freq_x[arr[j][0] - 1] * freq_y[arr[j][1] - 1];
+    }
+    return ans;
+  }
+}
+
+// let arr = [[0, 0], [2, 0], [1, 1], [2, 2]];
+let arr = [[1, 1], [3, 1], [4, 1], [5, 1], [1, 3], [1, 4], [1, 5]];
+console.log(NumOfTringle(arr));
